@@ -20,7 +20,6 @@ export const metadata: Metadata = {
   title: "Rempang Eco City — Portal Informasi",
   description:
     "Portal informasi masyarakat Rempang Eco City. Profil REC, Koperasi, Pariwisata, UMKM, dan Berita terkini.",
-  lang: "id",
 };
 
 export default function RootLayout({
