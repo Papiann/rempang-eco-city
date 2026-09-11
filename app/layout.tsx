@@ -17,9 +17,10 @@ const body = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Rempang Eco City — A New Gateway for Sustainable Growth",
+  title: "Rempang Eco City — Portal Informasi",
   description:
-    "Rempang Eco City is an integrated development connecting industry, commerce, residential, tourism, and green energy on Rempang Island, Indonesia.",
+    "Portal informasi masyarakat Rempang Eco City. Profil REC, Koperasi, Pariwisata, UMKM, dan Berita terkini.",
+  lang: "id",
 };
 
 export default function RootLayout({
@@ -28,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${heading.variable} ${body.variable}`}>
-      <body className="font-body bg-offwhite text-charcoal antialiased">
+    <html lang="id" className={`${heading.variable} ${body.variable}`}>
+      <body className="font-body bg-bg-light text-text-primary antialiased">
         {children}
       </body>
     </html>

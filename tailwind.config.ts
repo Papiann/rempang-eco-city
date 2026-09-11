@@ -8,26 +8,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        forest: "#12372A",
-        sand: "#E7D8C0",
-        teal: "#2F7F7B",
-        offwhite: "#F7F6F1",
-        charcoal: "#17201C",
+        // Primary colors
+        "primary-blue": "#0057A8",
+        "primary-dark": "#003B73",
+        "primary-yellow": "#FFC928",
+        "yellow-light": "#FFF7D6",
+        
+        // Neutral colors
+        "bg-light": "#F7F9FC",
+        "text-primary": "#1F2937",
+        "text-secondary": "#64748B",
+        "border-color": "#E2E8F0",
       },
       fontFamily: {
         heading: ["var(--font-heading)", "sans-serif"],
         body: ["var(--font-body)", "sans-serif"],
       },
-      fontSize: {
-        "hero-desktop": ["6rem", { lineHeight: "1.02", letterSpacing: "-0.02em" }],
-        "hero-tablet": ["4rem", { lineHeight: "1.04", letterSpacing: "-0.02em" }],
-        "hero-mobile": ["2.75rem", { lineHeight: "1.08", letterSpacing: "-0.01em" }],
-      },
       maxWidth: {
-        content: "1440px",
+        content: "1200px",
       },
       transitionTimingFunction: {
-        editorial: "cubic-bezier(0.22, 1, 0.36, 1)",
+        smooth: "cubic-bezier(0.4, 0, 0.2, 1)",
       },
     },
   },

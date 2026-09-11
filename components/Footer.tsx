@@ -1,63 +1,72 @@
-const navGroups = [
-  {
-    title: "Overview",
-    links: ["About", "Development", "Masterplan", "Sustainability", "Investment", "Updates"],
-  },
-  {
-    title: "Resources",
-    links: ["Official Information", "Documents", "Privacy", "Terms"],
-  },
+import Link from "next/link";
+
+const navLinks = [
+  { label: "Beranda", href: "/" },
+  { label: "Profil REC", href: "/profil" },
+  { label: "Koperasi", href: "/koperasi" },
+  { label: "Pariwisata", href: "/pariwisata" },
+  { label: "UMKM", href: "/umkm" },
+  { label: "Berita", href: "/berita" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-charcoal text-offwhite/80 pt-20 pb-10">
+    <footer className="bg-primary-dark text-white py-16 md:py-20">
       <div className="container-content">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-offwhite/10">
-          <div className="md:col-span-5">
-            <span className="font-heading font-semibold text-offwhite text-lg">
-              REMPANG ECO CITY
-            </span>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed">
-              A New Gateway for Sustainable Growth.
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-white/10">
+          {/* Brand */}
+          <div>
+            <h3 className="font-heading font-bold text-lg">Rempang Eco City</h3>
+            <p className="mt-3 text-sm text-white/80">
+              Portal informasi masyarakat Rempang Eco City
             </p>
           </div>
 
-          {navGroups.map((group) => (
-            <div key={group.title} className="md:col-span-3">
-              <span className="text-offwhite/50 text-xs uppercase tracking-wide">
-                {group.title}
-              </span>
-              <ul className="mt-4 space-y-2.5">
-                {group.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm hover:text-offwhite transition-colors duration-200 focus-ring"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Navigation */}
+          <div>
+            <h4 className="text-sm font-semibold text-white uppercase tracking-wider">
+              Navigasi
+            </h4>
+            <ul className="mt-4 space-y-2">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-white/80 hover:text-primary-yellow transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          <div className="md:col-span-4">
-            <span className="text-offwhite/50 text-xs uppercase tracking-wide">
-              Contact
-            </span>
-            <p className="mt-4 text-sm leading-relaxed">
-              BP Batam — Rempang Eco City Development Office
-              <br />
-              Batam, Riau Islands, Indonesia
-            </p>
+          {/* Contact */}
+          <div>
+            <h4 className="text-sm font-semibold text-white uppercase tracking-wider">
+              Kontak
+            </h4>
+            <div className="mt-4 text-sm text-white/80 space-y-2">
+              <p>Rempang, Batam</p>
+              <p>Kepulauan Riau, Indonesia</p>
+            </div>
+          </div>
+
+          {/* Info */}
+          <div>
+            <h4 className="text-sm font-semibold text-white uppercase tracking-wider">
+              Informasi
+            </h4>
+            <ul className="mt-4 space-y-2 text-sm text-white/80">
+              <li><a href="#" className="hover:text-primary-yellow transition-colors">Kebijakan Privasi</a></li>
+              <li><a href="#" className="hover:text-primary-yellow transition-colors">Syarat & Ketentuan</a></li>
+            </ul>
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-offwhite/45">
-          <span>Copyright 2026 Rempang Eco City</span>
-          <span>Data referenced from BP Batam Strategic Plan 2025–2029</span>
+        {/* Copyright */}
+        <div className="pt-8 text-center text-sm text-white/60">
+          <p>© 2026 Rempang Eco City. Semua hak dilindungi.</p>
         </div>
       </div>
     </footer>
