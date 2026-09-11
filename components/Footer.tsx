@@ -17,8 +17,12 @@ export default function Footer() {
           {/* Logo Kementrans */}
           <div className="flex items-start">
             <div className="flex flex-col">
-              <div className="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-xs font-bold text-center px-2">KEMENTRANS</span>
+              <div className="w-24 h-24 mb-4">
+                <img 
+                  src="/images/logo-kementrans.png" 
+                  alt="Logo Kementrans"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <p className="text-sm text-white/80">
                 Kementerian Transportasi
