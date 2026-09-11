@@ -11,7 +11,7 @@ export default function InvestmentSection() {
       <div className="container-content">
         <SectionHeader light headline="Build the future with us." />
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-offwhite/10">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {sectors.map((sector, i) => (
             <motion.a
               href="#"
@@ -20,7 +20,7 @@ export default function InvestmentSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.55, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              className="group bg-forest p-7 flex flex-col justify-between min-h-[220px] focus-ring"
+              className="group bg-forest p-7 flex flex-col justify-between min-h-[220px] focus-ring rounded-lg"
             >
               <div className="flex items-center justify-between">
                 <span className="text-offwhite/50 text-sm">{sector.number}</span>
@@ -39,13 +39,13 @@ export default function InvestmentSection() {
         <div className="mt-14 flex flex-col sm:flex-row gap-4">
           <a
             href="#"
-            className="inline-flex items-center justify-center px-7 py-3.5 bg-offwhite text-forest text-sm font-medium hover:bg-sand transition-colors duration-300 focus-ring"
+            className="inline-flex items-center justify-center px-7 py-3.5 bg-offwhite text-forest text-sm font-medium hover:bg-sand transition-colors duration-300 focus-ring rounded-lg"
           >
             Explore Investment Opportunities
           </a>
           <a
             href="#"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-offwhite/40 text-offwhite text-sm font-medium hover:bg-offwhite/10 transition-colors duration-300 focus-ring"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-offwhite/40 text-offwhite text-sm font-medium hover:bg-offwhite/10 transition-colors duration-300 focus-ring rounded-lg"
           >
             <Download size={16} />
             Download Investment Information

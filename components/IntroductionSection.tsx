@@ -13,7 +13,7 @@ export default function IntroductionSection() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="lg:col-span-6 order-2 lg:order-1"
         >
-          <div className="relative aspect-[4/5] w-full overflow-hidden">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
             <img
               src="https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1600&auto=format&fit=crop"
               alt="Dense tropical forest canopy on Rempang Island"

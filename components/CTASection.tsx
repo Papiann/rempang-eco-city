@@ -39,7 +39,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-9 inline-flex items-center justify-center px-7 py-3.5 bg-offwhite text-forest text-sm font-medium hover:bg-sand transition-colors duration-300 focus-ring w-fit"
+            className="mt-9 inline-flex items-center justify-center px-7 py-3.5 bg-offwhite text-forest text-sm font-medium hover:bg-sand transition-colors duration-300 focus-ring w-fit rounded-lg"
           >
             Explore Rempang
           </motion.a>

@@ -68,7 +68,7 @@ export default function Navbar() {
 
           <a
             href="#masterplan"
-            className={`hidden lg:inline-flex items-center px-5 py-2.5 text-sm font-medium transition-colors duration-300 focus-ring ${
+            className={`hidden lg:inline-flex items-center px-5 py-2.5 text-sm font-medium transition-colors duration-300 focus-ring rounded-lg ${
               scrolled
                 ? "bg-forest text-offwhite hover:bg-teal"
                 : "bg-offwhite text-forest hover:bg-sand"

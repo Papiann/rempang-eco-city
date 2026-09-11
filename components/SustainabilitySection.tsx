@@ -30,7 +30,7 @@ export default function SustainabilitySection() {
       <div className="container-content">
         <SectionHeader headline="Growth should move forward. Without leaving nature behind." />
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-charcoal/10">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           {blocks.map((block, i) => (
             <motion.div
               key={block.title}
@@ -38,7 +38,7 @@ export default function SustainabilitySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-sand/40 flex flex-col"
+              className="bg-sand/40 flex flex-col rounded-xl overflow-hidden"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img

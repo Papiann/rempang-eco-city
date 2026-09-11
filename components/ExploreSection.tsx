@@ -53,7 +53,7 @@ export default function ExploreSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.55, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative shrink-0 w-[70vw] sm:w-[42vw] md:w-auto aspect-[3/4] overflow-hidden snap-start focus-ring"
+              className="group relative shrink-0 w-[70vw] sm:w-[42vw] md:w-auto aspect-[3/4] overflow-hidden snap-start focus-ring rounded-2xl"
             >
               <img
                 src={item.image}

@@ -76,7 +76,7 @@ export default function HeroSection() {
           >
             <a
               href="#masterplan"
-              className="inline-flex items-center justify-center px-7 py-3.5 bg-offwhite text-forest text-sm font-medium hover:bg-sand transition-colors duration-300 focus-ring"
+              className="inline-flex items-center justify-center px-7 py-3.5 bg-offwhite text-forest text-sm font-medium hover:bg-sand transition-colors duration-300 focus-ring rounded-lg"
             >
               Explore the Masterplan
             </a>

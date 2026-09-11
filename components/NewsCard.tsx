@@ -20,7 +20,7 @@ export default function NewsCard({
       className={`group block focus-ring ${article.featured ? "" : ""}`}
     >
       <div
-        className={`relative overflow-hidden ${
+        className={`relative overflow-hidden rounded-lg ${
           article.featured ? "aspect-[16/10]" : "aspect-[16/11]"
         }`}
       >

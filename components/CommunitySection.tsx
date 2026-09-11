@@ -57,7 +57,7 @@ export default function CommunitySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className={`relative overflow-hidden aspect-[4/3] group ${card.span}`}
+              className={`relative overflow-hidden aspect-[4/3] group ${card.span} rounded-xl`}
             >
               <img
                 src={card.image}
