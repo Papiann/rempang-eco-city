@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
+// Breadcrumb removed per request
 import PageHeader from "@/components/PageHeader";
 
 export default function KoperasiMerahPutihPage() {
@@ -12,13 +12,7 @@ export default function KoperasiMerahPutihPage() {
           title="Koperasi Merah Putih"
           description="Koperasi yang mendorong potensi usaha dan kesejahteraan masyarakat Rempang Eco City."
         />
-        <Breadcrumb
-          items={[
-            { label: "Beranda", href: "/" },
-            { label: "Koperasi", href: "/koperasi" },
-            { label: "Koperasi Merah Putih" },
-          ]}
-        />
+        {/* breadcrumb removed */}
 
         <section className="bg-white py-16 md:py-20">
           <div className="container-content">

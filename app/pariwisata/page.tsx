@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
+// Breadcrumb removed per request
 import PageHeader from "@/components/PageHeader";
 import PariwisataContent from "@/components/pages/PariwisataContent";
 
@@ -13,7 +13,6 @@ export default function PariwisataPage() {
           title="Pariwisata Rempang"
           description="Jelajahi potensi alam, budaya, dan destinasi wisata"
         />
-        <Breadcrumb items={[{ label: "Beranda", href: "/" }, { label: "Pariwisata" }]} />
         <PariwisataContent />
       </div>
       <Footer />

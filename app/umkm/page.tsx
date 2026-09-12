@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
+// Breadcrumb removed per request
 import PageHeader from "@/components/PageHeader";
 import UMKMContent from "@/components/pages/UMKMContent";
 
@@ -13,7 +13,6 @@ export default function UMKMPage() {
           title="UMKM Rempang"
           description="Temukan dan dukung produk usaha masyarakat"
         />
-        <Breadcrumb items={[{ label: "Beranda", href: "/" }, { label: "UMKM" }]} />
         <UMKMContent />
       </div>
       <Footer />

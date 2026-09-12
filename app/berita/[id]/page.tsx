@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
+// Breadcrumb removed per request
 import PageHeader from "@/components/PageHeader";
 import Link from "next/link";
 
@@ -63,11 +63,7 @@ export default function BeritaDetailPage({ params }: { params: { id: string } })
           title={article.title}
           description={article.excerpt}
         />
-        <Breadcrumb items={[
-          { label: "Beranda", href: "/" }, 
-          { label: "Berita", href: "/berita" },
-          { label: article.title }
-        ]} />
+        {/* breadcrumb removed */}
 
         <article className="bg-white py-16 md:py-24">
           <div className="container-content max-w-3xl">
