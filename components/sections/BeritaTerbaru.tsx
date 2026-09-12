@@ -59,67 +59,41 @@ export default function BeritaTerbaru() {
           </motion.a>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Featured */}
-          {featured && (
-            <motion.div
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {newsItems.map((article, i) => (
+            <motion.article
+              key={article.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-2"
+              transition={{ duration: 0.6, delay: i * 0.06 }}
+              className="bg-white rounded-xl shadow-md overflow-hidden"
             >
-              <Link href={`/berita/${featured.id}`} className="group block">
-                <div className="relative aspect-video rounded-xl overflow-hidden mb-6 bg-border-color">
+              <Link href={`/berita/${article.id}`} className="block">
+                <div className="h-44 w-full overflow-hidden bg-border-color">
                   <img
-                    src={featured.image}
-                    alt={featured.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
-                <div className="mb-3">
-                  <span className="text-sm text-text-secondary">{featured.date}</span>
-                </div>
-                <h3 className="font-heading font-bold text-2xl text-text-primary group-hover:text-primary-blue transition-colors mb-2">
-                  {featured.title}
-                </h3>
-                <p className="text-text-secondary line-clamp-2">{featured.excerpt}</p>
-              </Link>
-            </motion.div>
-          )}
-
-          {/* Other News */}
-          <div className="space-y-6">
-            {others.map((article, i) => (
-              <motion.div
-                key={article.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: (i + 1) * 0.1 }}
-              >
-                <Link href={`/berita/${article.id}`} className="group block">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden bg-border-color">
-                      <img
-                        src={article.image}
-                        alt={article.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <div className="mb-2">
-                        <span className="text-xs text-text-secondary">{article.date}</span>
-                      </div>
-                      <h4 className="font-heading font-semibold text-sm text-text-primary group-hover:text-primary-blue transition-colors line-clamp-2">
-                        {article.title}
-                      </h4>
-                    </div>
+                <div className="p-6">
+                  <div className="mb-3">
+                    <span className="text-xs text-text-secondary">{article.date}</span>
                   </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+                  <h4 className="font-heading font-bold text-lg text-text-primary mb-2 leading-snug">
+                    {article.title}
+                  </h4>
+                  <p className="text-text-secondary text-sm leading-relaxed line-clamp-3 mb-4">
+                    {article.excerpt}
+                  </p>
+                  <div>
+                    <span className="text-primary-blue font-semibold">Baca selengkapnya ›</span>
+                  </div>
+                </div>
+              </Link>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>
