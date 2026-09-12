@@ -24,8 +24,8 @@ export default function Footer() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <p className="text-sm text-white/80">
-                Kementerian Transportasi
+              <p className="text-sm text-white">
+                Kementerian Transmigrasi Republik Indonesia
               </p>
             </div>
           </div>
@@ -40,7 +40,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/80 hover:text-primary-yellow transition-colors"
+                    className="text-sm text-white hover:text-primary-yellow transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -54,7 +54,7 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-white uppercase tracking-wider">
               Alamat
             </h4>
-            <div className="mt-4 text-sm text-white/80 space-y-2">
+            <div className="mt-4 text-sm text-white space-y-2">
               <p>Rempang, Batam</p>
               <p>Kepulauan Riau, Indonesia</p>
             </div>

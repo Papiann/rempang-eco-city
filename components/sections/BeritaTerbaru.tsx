@@ -26,6 +26,13 @@ const newsItems = [
     date: "Juni 2026",
     image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=400&auto=format&fit=crop",
   },
+  {
+    id: 4,
+    title: "Peluncuran Pasar Digital UMKM Rempang",
+    excerpt: "Platform online lokal diluncurkan untuk membantu UMKM Rempang menjangkau pembeli nasional dan internasional.",
+    date: "September 2026",
+    image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=400&auto=format&fit=crop",
+  },
 ];
 
 export default function BeritaTerbaru() {
