@@ -1,6 +1,16 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
+
+const RempangMap = dynamic(() => import("./RempangMap"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-full min-h-[450px] w-full items-center justify-center bg-slate-100 text-sm font-medium text-slate-500">
+      Memuat peta Rempang...
+    </div>
+  ),
+});
 
 export default function PetaWilayah() {
   return (
@@ -21,7 +31,6 @@ export default function PetaWilayah() {
           </p>
         </motion.div>
 
-        {/* Map Container */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -29,25 +38,8 @@ export default function PetaWilayah() {
           transition={{ duration: 0.7 }}
           className="rounded-xl overflow-hidden border border-border-color shadow-sm"
         >
-          <div className="bg-bg-light aspect-video flex items-center justify-center">
-            {/* Placeholder Map */}
-            <div className="w-full h-full flex flex-col items-center justify-center">
-              <div className="text-center">
-                <svg className="w-20 h-20 mx-auto text-primary-blue/20 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724C3.206 16.925 2 15.972 2 14.8V5.2c0-1.172 1.206-2.125 1.553-2.476M9 20l6 3.722M9 20V9.5m6 10.722l5.447 2.724C20.794 16.925 22 15.972 22 14.8V5.2c0-1.172-1.206-2.125-1.553-2.476M15 9.5m-6 0l6-3v6m0 0l6-3" />
-                </svg>
-                <h3 className="font-heading font-semibold text-xl text-text-primary mb-2">Peta Interaktif</h3>
-                <p className="text-text-secondary mb-6">Placeholder untuk peta Rempang Eco City</p>
-                <div className="flex gap-4 justify-center">
-                  <div className="px-4 py-2 bg-primary-blue/10 rounded-lg text-sm text-primary-blue font-medium">
-                    Rempang, Batam
-                  </div>
-                  <div className="px-4 py-2 bg-primary-blue/10 rounded-lg text-sm text-primary-blue font-medium">
-                    Kepulauan Riau, Indonesia
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="bg-bg-light h-[450px] md:h-[520px] w-full">
+            <RempangMap />
           </div>
         </motion.div>
       </div>
