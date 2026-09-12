@@ -3,6 +3,29 @@ import Footer from "@/components/Footer";
 // Breadcrumb removed per request
 import PageHeader from "@/components/PageHeader";
 
+const pengurus = [
+  {
+    name: "Yudo Pramono",
+    role: "Staff Khusus Kementrans",
+    image: "/images/ex-pic-staff.png",
+  },
+  {
+    name: "Yudo Pramono",
+    role: "Staff Khusus Kementrans",
+    image: "/images/ex-pic-staff.png",
+  },
+  {
+    name: "Yudo Pramono",
+    role: "Staff Khusus Kementrans",
+    image: "/images/ex-pic-staff.png",
+  },
+  {
+    name: "Yudo Pramono",
+    role: "Staff Khusus Kementrans",
+    image: "/images/ex-pic-staff.png",
+  },
+];
+
 export default function KoperasiTransmigrasiPage() {
   return (
     <main>
@@ -50,6 +73,43 @@ export default function KoperasiTransmigrasiPage() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-8 md:py-12">
+          <div className="container-content">
+            <h2 className="font-heading text-4xl font-bold text-primary-blue text-center mb-8">
+              Struktur Kepengurusan Koperasi Transmigrasi
+            </h2>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 md:p-6 shadow-[0_8px_20px_rgba(15,23,42,0.03)]">
+              <img
+                src="/images/struktur-kop-trans.png"
+                alt="Struktur kepengurusan Koperasi Transmigrasi"
+                className="mx-auto w-full max-w-6xl object-contain"
+              />
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {pengurus.map((person, index) => (
+                <article
+                  key={`${person.name}-${index}`}
+                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_20px_rgba(15,23,42,0.03)] transition-all hover:shadow-[0_18px_36px_rgba(15,23,42,0.08)]"
+                >
+                  <div className="overflow-hidden bg-[#39b7c9]">
+                    <img
+                      src={person.image}
+                      alt={person.name}
+                      className="h-72 w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-4 text-center">
+                    <h3 className="text-xl font-semibold text-primary-blue">{person.name}</h3>
+                    <p className="mt-1 text-sm text-text-secondary">{person.role}</p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
