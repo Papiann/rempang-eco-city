@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import HeroBanner from "@/components/sections/HeroBanner";
 import PetaWilayah from "@/components/sections/PetaWilayah";
 import KoperasiSection from "@/components/sections/KoperasiSection";
+import PariwisataSection from "@/components/sections/PariwisataSection";
 import BeritaTerbaru from "@/components/sections/BeritaTerbaru";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
         <HeroBanner />
         <PetaWilayah />
         <KoperasiSection />
+        <PariwisataSection />
         <BeritaTerbaru />
       </div>
       <Footer />
