@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ProfilGallery from "@/components/ProfilGallery";
 
 export default function ProfilContent() {
   return (
@@ -17,16 +18,29 @@ export default function ProfilContent() {
           <h2 className="font-heading font-bold text-2xl md:text-3xl text-primary-blue mb-6">
             Tentang Rempang Eco City
           </h2>
-          <div className="space-y-4 text-text-secondary leading-relaxed">
-            <p>
-              Rempang Eco City merupakan kawasan pengembangan strategis yang berlokasi di Pulau Rempang, Batam, Kepulauan Riau, Indonesia. Kawasan ini dikembangkan dengan visi untuk menciptakan ekosistem terintegrasi yang menghubungkan lima pilar pembangunan utama.
-            </p>
-            <p>
-              Pengembangan Rempang Eco City dilakukan dengan mempertimbangkan tiga prinsip utama: keberlanjutan lingkungan, pemberdayaan masyarakat lokal, dan pertumbuhan ekonomi jangka panjang yang berkelanjutan.
-            </p>
-            <p>
-              Proyek ini melibatkan kolaborasi antara pemerintah, masyarakat lokal, dan sektor swasta untuk memastikan pembangunan yang inklusif dan berkelanjutan.
-            </p>
+
+          <div className="md:flex md:items-start md:gap-8">
+            <div className="md:w-1/2 mb-6 md:mb-0">
+              {/* Gallery on the left */}
+              {/* lazy-load gallery component */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              {/* Using a small client component for scroll-snap gallery */}
+              <ProfilGallery />
+            </div>
+
+            <div className="md:w-1/2">
+              <div className="space-y-4 text-text-secondary leading-relaxed">
+                <p>
+                  Rempang Eco City merupakan kawasan pengembangan strategis yang berlokasi di Pulau Rempang, Batam, Kepulauan Riau, Indonesia. Kawasan ini dikembangkan dengan visi untuk menciptakan ekosistem terintegrasi yang menghubungkan lima pilar pembangunan utama.
+                </p>
+                <p>
+                  Pengembangan Rempang Eco City dilakukan dengan mempertimbangkan tiga prinsip utama: keberlanjutan lingkungan, pemberdayaan masyarakat lokal, dan pertumbuhan ekonomi jangka panjang yang berkelanjutan.
+                </p>
+                <p>
+                  Proyek ini melibatkan kolaborasi antara pemerintah, masyarakat lokal, dan sektor swasta untuk memastikan pembangunan yang inklusif dan berkelanjutan.
+                </p>
+              </div>
+            </div>
           </div>
         </motion.section>
 
@@ -41,38 +55,27 @@ export default function ProfilContent() {
           <h2 className="font-heading font-bold text-2xl md:text-3xl text-primary-blue mb-6">
             Lembaga Kemasyarakatan
           </h2>
-          <p className="text-text-secondary mb-8">
-            Struktur organisasi kemasyarakatan di Rempang Eco City:
+          <p className="text-text-secondary mb-4">
+            Struktur organisasi kemasyarakatan di Rempang Eco City.
           </p>
 
-          <div className="space-y-6">
-            <div className="p-6 bg-bg-light rounded-lg border border-border-color">
-              <h3 className="font-heading font-semibold text-lg text-primary-blue mb-4">
-                Lurah (Kepala Wilayah)
-              </h3>
-              <p className="text-text-secondary mb-4">Pimpinan tertinggi tingkat kelurahan</p>
-              
-              <div className="ml-6 space-y-4">
-                <div className="p-4 bg-white rounded border border-border-color">
-                  <h4 className="font-semibold text-text-primary mb-2">RW 01 (Rukun Warga)</h4>
-                  <div className="ml-4 text-sm text-text-secondary">
-                    <p>RT 01 • RT 02 • RT 03</p>
-                  </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              { title: "RW 01", description: "Pengurus RW dan komunitas lokal", image: "/images/ex-pic-staff.png" },
+              { title: "RW 02", description: "Pengurus RW dan komunitas lokal", image: "/images/hero-kop-trans.png" },
+              { title: "RW 03", description: "Pengurus RW dan komunitas lokal", image: "/images/hero-pariwisata-rec.jpg" },
+              { title: "Lurah", description: "Kepala wilayah setempat", image: "/images/hero-rumah-rempang.png" },
+            ].map((inst) => (
+              <div key={inst.title} className="bg-white rounded-2xl border border-border-color overflow-hidden shadow-sm">
+                <div className="w-full h-40 relative overflow-hidden rounded-t-2xl">
+                  <img src={inst.image} alt={inst.title} className="object-cover w-full h-full" />
                 </div>
-                <div className="p-4 bg-white rounded border border-border-color">
-                  <h4 className="font-semibold text-text-primary mb-2">RW 02 (Rukun Warga)</h4>
-                  <div className="ml-4 text-sm text-text-secondary">
-                    <p>RT 01 • RT 02 • RT 03</p>
-                  </div>
-                </div>
-                <div className="p-4 bg-white rounded border border-border-color">
-                  <h4 className="font-semibold text-text-primary mb-2">RW 03 (Rukun Warga)</h4>
-                  <div className="ml-4 text-sm text-text-secondary">
-                    <p>RT 01 • RT 02</p>
-                  </div>
+                <div className="p-4">
+                  <h4 className="font-semibold text-text-primary mb-1">{inst.title}</h4>
+                  <p className="text-sm text-text-secondary">{inst.description}</p>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </motion.section>
 
