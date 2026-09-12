@@ -4,6 +4,7 @@ import HeroBanner from "@/components/sections/HeroBanner";
 import PetaWilayah from "@/components/sections/PetaWilayah";
 import KoperasiSection from "@/components/sections/KoperasiSection";
 import PariwisataSection from "@/components/sections/PariwisataSection";
+import UMKMSection from "@/components/sections/UMKMSection";
 import BeritaTerbaru from "@/components/sections/BeritaTerbaru";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
         <PetaWilayah />
         <KoperasiSection />
         <PariwisataSection />
+        <UMKMSection />
         <BeritaTerbaru />
       </div>
       <Footer />

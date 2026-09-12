@@ -47,14 +47,14 @@ export default function PariwisataSection() {
               <button
                 onClick={() => setIndex((i) => (i - 1 + images.length) % images.length)}
                 aria-label="Sebelumnya"
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 bg-white/90 rounded-full flex items-center justify-center shadow-md hover:bg-white"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 bg-white/90 rounded-full flex items-center justify-center shadow-md hover:bg-white md:hidden"
               >
                 ‹
               </button>
               <button
                 onClick={() => setIndex((i) => (i + 1) % images.length)}
                 aria-label="Selanjutnya"
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 bg-white/90 rounded-full flex items-center justify-center shadow-md hover:bg-white"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 bg-white/90 rounded-full flex items-center justify-center shadow-md hover:bg-white md:hidden"
               >
                 ›
               </button>
@@ -84,7 +84,7 @@ export default function PariwisataSection() {
               transition={{ duration: 0.5 }}
               className="font-heading font-bold text-3xl md:text-4xl text-primary-blue mb-3"
             >
-              Pariwisata Rempang Eco City
+              Pariwisata
             </motion.h2>
 
             <p className="text-lg text-text-secondary mb-6 max-w-xl">
