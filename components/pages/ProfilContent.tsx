@@ -65,15 +65,15 @@ export default function ProfilContent() {
               { title: "RW 03", description: "Pengurus RW dan komunitas lokal", image: "/images/hero-pariwisata-rec.jpg" },
               { title: "Lurah", description: "Kepala wilayah setempat", image: "/images/hero-rumah-rempang.png" },
             ].map((inst) => (
-              <div key={inst.title} className="bg-white rounded-2xl border border-border-color overflow-hidden shadow-sm">
+              <article key={inst.title} className="group overflow-hidden rounded-2xl border border-border-color bg-white shadow-[0_8px_20px_rgba(15,23,42,0.03)] transition-all hover:shadow-[0_18px_36px_rgba(15,23,42,0.08)]">
                 <div className="w-full h-40 relative overflow-hidden rounded-t-2xl">
-                  <img src={inst.image} alt={inst.title} className="object-cover w-full h-full" />
+                  <img src={inst.image} alt={inst.title} className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-4">
                   <h4 className="font-semibold text-text-primary mb-1">{inst.title}</h4>
                   <p className="text-sm text-text-secondary">{inst.description}</p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </motion.section>
