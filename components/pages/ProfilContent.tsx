@@ -15,10 +15,6 @@ export default function ProfilContent() {
           transition={{ duration: 0.6 }}
           className="mb-16 pb-16 border-b border-border-color"
         >
-          <h2 className="font-heading font-bold text-2xl md:text-3xl text-primary-blue mb-6">
-            Tentang Rempang Eco City
-          </h2>
-
           <div className="md:flex md:items-start md:gap-8">
             <div className="md:w-1/2 mb-6 md:mb-0">
               {/* Gallery on the left */}
@@ -29,6 +25,9 @@ export default function ProfilContent() {
             </div>
 
             <div className="md:w-1/2">
+              <h2 className="font-heading font-bold text-2xl md:text-3xl text-primary-blue mb-6">
+                Tentang Rempang Eco City
+              </h2>
               <div className="space-y-4 text-text-secondary leading-relaxed">
                 <p>
                   Rempang Eco City merupakan kawasan pengembangan strategis yang berlokasi di Pulau Rempang, Batam, Kepulauan Riau, Indonesia. Kawasan ini dikembangkan dengan visi untuk menciptakan ekosistem terintegrasi yang menghubungkan lima pilar pembangunan utama.
