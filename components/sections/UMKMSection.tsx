@@ -54,10 +54,10 @@ export default function UMKMSection() {
                 {umkms.map((card) => (
                   <article
                     key={card.id}
-                    className={`umkm-card w-[220px] md:w-[260px] bg-bg-light rounded-xl border border-border-color overflow-hidden shadow-sm`}
+                    className={`group umkm-card w-[220px] md:w-[260px] bg-bg-light rounded-2xl border border-border-color overflow-hidden shadow-[0_8px_20px_rgba(15,23,42,0.03)] transition-all hover:shadow-[0_18px_36px_rgba(15,23,42,0.08)]`}
                   >
-                    <div className="h-44 md:h-56 w-full overflow-hidden">
-                      <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                    <div className="h-44 md:h-56 w-full overflow-hidden rounded-t-2xl">
+                      <img src={card.image} alt={card.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <div className="p-4">
                       <h4 className="text-base font-semibold text-text-primary">{card.title}</h4>

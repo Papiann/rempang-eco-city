@@ -74,14 +74,14 @@ export default function BeritaTerbaru() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.06 }}
-              className="bg-white rounded-xl shadow-md overflow-hidden"
+              className="group overflow-hidden rounded-2xl border border-border-color bg-white shadow-[0_8px_20px_rgba(15,23,42,0.03)] transition-all hover:shadow-[0_18px_36px_rgba(15,23,42,0.08)]"
             >
               <Link href={`/berita/${article.id}`} className="block">
                 <div className="h-44 w-full overflow-hidden bg-border-color">
                   <img
                     src={article.image}
                     alt={article.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-6">
