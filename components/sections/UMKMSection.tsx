@@ -1,36 +1,20 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { umkms } from "@/data/umkms";
 
 export default function UMKMSection() {
-  const [active, setActive] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const sectionRef = useRef<HTMLElement | null>(null);
 
-  // autoplay
+  // autoplay removed — user controls the carousel
+
+  // No programmatic active changes — users scroll/hover to browse cards.
   useEffect(() => {
-    // autoplay removed — autoplay moved to Pariwisata section per request
-    return;
+    // keep refs stable; nothing to do here
   }, []);
-
-  // scroll into view when active changes
-  useEffect(() => {
-    const el = containerRef.current?.querySelectorAll(".umkm-card")[active] as HTMLElement | undefined;
-    el?.scrollIntoView({ behavior: "smooth", inline: "center" });
-
-    // bump effect (immersive): briefly translate the section down and back
-    if (sectionRef.current) {
-      const sec = sectionRef.current;
-      sec.classList.add("transition-transform", "duration-200", "translate-y-1");
-      const t = setTimeout(() => {
-        sec.classList.remove("translate-y-1");
-      }, 220);
-      return () => clearTimeout(t);
-    }
-  }, [active]);
 
   return (
     <section ref={sectionRef} className="bg-white py-16 md:py-24">
@@ -66,14 +50,11 @@ export default function UMKMSection() {
             </div>
 
             <div className="relative">
-              <div ref={containerRef} className="flex gap-4 overflow-x-auto pb-4 scroll-smooth">
-                {umkms.map((card, i) => (
+              <div ref={containerRef} className="umkm-carousel flex gap-4 overflow-x-auto pb-4">
+                {umkms.map((card) => (
                   <article
                     key={card.id}
-                    onMouseEnter={() => setActive(i)}
-                    className={`umkm-card min-w-[220px] md:min-w-[260px] bg-bg-light rounded-xl border border-border-color overflow-hidden shadow-sm transition-transform ${
-                      i === active ? "scale-105" : ""
-                    }`}
+                    className={`umkm-card w-[220px] md:w-[260px] bg-bg-light rounded-xl border border-border-color overflow-hidden shadow-sm`}
                   >
                     <div className="h-44 md:h-56 w-full overflow-hidden">
                       <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
@@ -85,12 +66,7 @@ export default function UMKMSection() {
                 ))}
               </div>
 
-              {/* Pagination dots */}
-              <div className="flex gap-2 mt-3 justify-center md:justify-start">
-                {umkms.map((_, i) => (
-                  <button key={i} onClick={() => setActive(i)} className={`h-2 w-8 rounded-full transition-colors ${i === active ? "bg-primary-blue" : "bg-gray-300"}`} aria-label={`Slide ${i + 1}`} />
-                ))}
-              </div>
+              {/* Pagination removed — users control carousel by scroll and hover */}
             </div>
           </div>
 

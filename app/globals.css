@@ -81,3 +81,13 @@ body {
   font-size: 1.1rem;
   padding: 0.1rem 0.4rem;
 }
+
+/* UMKM carousel: use scroll-snap to avoid animated layout shifts */
+.umkm-carousel {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.umkm-card {
+  scroll-snap-align: center;
+  flex: 0 0 auto;
+}
