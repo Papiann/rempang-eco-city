@@ -34,34 +34,74 @@ const galleryItems = [
 		title: "Pelatihan UMKM",
 		description:
 			"Peningkatan kapasitas produksi dan pemasaran produk lokal masyarakat Rempang.",
-		image: "/images/hero-kop-trans.png",
+		images: [
+			"/images/hero-kop-trans.png",
+			"/images/hero-kops-mp.png",
+		],
 	},
 	{
 		title: "Kegiatan Ekonomi Komunitas",
 		description:
 			"Kolaborasi pengelolaan usaha dan distribusi kebutuhan masyarakat di sekitar kawasan.",
-		image: "/images/hero-kops-mp.png",
+		images: [
+			"/images/hero-kops-mp.png",
+			"/images/hero-rumah-rempang.png",
+		],
 	},
 	{
 		title: "Kunjungan dan Pendampingan",
 		description:
 			"Pendampingan langsung untuk membangun sinergi antara koperasi, warga, dan mitra usaha.",
-		image: "/images/hero-rumah-rempang.png",
+		images: [
+			"/images/hero-rumah-rempang.png",
+			"/images/hero-pariwisata-rec.jpg",
+		],
 	},
 	{
 		title: "Wisata dan Potensi Lokal",
 		description:
 			"Integrasi program ekonomi dengan potensi wisata dan budaya lokal untuk kesejahteraan bersama.",
-		image: "/images/hero-pariwisata-rec.jpg",
+		images: [
+			"/images/hero-pariwisata-rec.jpg",
+			"/images/hero-kop-trans.png",
+		],
+	},
+	{
+		title: "Produk Lokal",
+		description:
+			"Pameran produk khas serta penguatan branding dan distribusi hasil usaha warga.",
+		images: [
+			"/images/hero-kop-trans.png",
+			"/images/hero-kops-mp.png",
+		],
+	},
+	{
+		title: "Pemberdayaan Warga",
+		description:
+			"Program pendampingan masyarakat untuk membangun usaha mandiri dan lingkungan yang produktif.",
+		images: [
+			"/images/hero-kops-mp.png",
+			"/images/hero-rumah-rempang.png",
+		],
 	},
 ];
 
 export default function KoperasiTransmigrasiPage() {
 	const [activeIndex, setActiveIndex] = useState(0);
+	const [photoIndex, setPhotoIndex] = useState(0);
 	const activeItem = galleryItems[activeIndex];
+	const activeImage = activeItem.images[photoIndex];
 
-	const goTo = (index: number) =>
-		setActiveIndex((index + galleryItems.length) % galleryItems.length);
+	const goTo = (index: number) => {
+		setActiveIndex(index);
+		setPhotoIndex(0);
+	};
+
+	const goToPhoto = (offset: number) => {
+		setPhotoIndex(
+			(prev) => (prev + offset + activeItem.images.length) % activeItem.images.length,
+		);
+	};
 
 	return (
 		<main>
@@ -104,18 +144,12 @@ export default function KoperasiTransmigrasiPage() {
 
 								<div className="grid grid-cols-2 gap-4 pt-4">
 									<div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-										<p className="text-sm text-text-secondary">
-											Tahun Berdiri
-										</p>
-										<p className="mt-2 text-xl font-bold text-text-primary">
-											2018
-										</p>
+										<p className="text-sm text-text-secondary">Tahun Berdiri</p>
+										<p className="mt-2 text-xl font-bold text-text-primary">2018</p>
 									</div>
 									<div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
 										<p className="text-sm text-text-secondary">Anggota</p>
-										<p className="mt-2 text-xl font-bold text-text-primary">
-											245
-										</p>
+										<p className="mt-2 text-xl font-bold text-text-primary">245</p>
 									</div>
 								</div>
 							</div>
@@ -176,92 +210,80 @@ export default function KoperasiTransmigrasiPage() {
 							</p>
 						</div>
 
-						<div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.7fr_0.9fr]">
-							<div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_12px_30px_rgba(15,23,42,0.04)]">
-								<div className="relative">
-									<img
-										src={activeItem.image}
-										alt={activeItem.title}
-										className="h-[420px] w-full object-cover md:h-[500px]"
-									/>
-									<div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/70 via-slate-900/25 to-transparent p-6 text-white">
-										<p className="text-xs uppercase tracking-[0.2em] text-slate-200">
-											Kegiatan
-										</p>
-										<h3 className="mt-2 text-2xl font-bold">
-											{activeItem.title}
-										</h3>
-										<p className="mt-2 max-w-xl text-sm text-slate-200">
-											{activeItem.description}
-										</p>
+						<div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.65fr_0.9fr]">
+							<div className="relative h-[420px] overflow-hidden rounded-3xl md:h-[500px]">
+								<img
+									src={activeImage}
+									alt={activeItem.title}
+									className="h-full w-full object-cover"
+								/>
+								<div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/75 via-slate-900/30 to-transparent p-6 text-white">
+									<p className="text-xs uppercase tracking-[0.2em] text-slate-200">
+										Kegiatan
+									</p>
+									<h3 className="mt-2 text-2xl font-bold">{activeItem.title}</h3>
+									<p className="mt-2 max-w-xl text-sm text-slate-200">
+										{activeItem.description}
+									</p>
+								</div>
+
+								{activeItem.images.length > 1 && (
+									<div className="absolute right-4 top-4 z-10 flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-sm font-medium text-slate-800 shadow-md backdrop-blur-sm">
+										<button
+											type="button"
+											onClick={() => goToPhoto(-1)}
+											className="flex h-7 w-7 items-center justify-center rounded-full hover:bg-slate-200"
+											aria-label="Previous photo"
+										>
+											‹
+										</button>
+										<span>
+											{photoIndex + 1}/{activeItem.images.length}
+										</span>
+										<button
+											type="button"
+											onClick={() => goToPhoto(1)}
+											className="flex h-7 w-7 items-center justify-center rounded-full hover:bg-slate-200"
+											aria-label="Next photo"
+										>
+											›
+										</button>
 									</div>
+								)}
+							</div>
+
+							<div className="max-h-[520px] overflow-y-auto pr-1">
+								<div className="space-y-3">
+									{galleryItems.map((item, index) => (
+										<button
+											key={item.title}
+											type="button"
+											onClick={() => goTo(index)}
+											className={`flex w-full items-center gap-3 rounded-2xl border p-2 text-left transition-all ${
+												activeIndex === index
+													? "border-primary-blue bg-primary-blue/5 shadow-sm"
+													: "border-slate-200 bg-white hover:border-slate-300"
+											}`}
+										>
+											<div className="h-20 w-24 flex-shrink-0 overflow-hidden rounded-xl">
+												<img
+													src={item.images[0]}
+													alt={item.title}
+													className="h-full w-full object-cover"
+												/>
+											</div>
+											<div className="min-w-0 flex-1">
+												<p className="truncate text-sm font-semibold text-text-primary">
+													{item.title}
+												</p>
+												<p className="mt-1 line-clamp-2 text-xs text-text-secondary">
+													{item.description}
+												</p>
+											</div>
+										</button>
+									))}
 								</div>
 							</div>
-
-							<div className="space-y-3">
-								{galleryItems.map((item, index) => (
-									<button
-										key={item.title}
-										type="button"
-										onClick={() => goTo(index)}
-										className={`flex w-full items-center gap-3 rounded-2xl border p-2 text-left transition-all ${
-											activeIndex === index
-												? "border-primary-blue bg-primary-blue/5 shadow-sm"
-												: "border-slate-200 bg-white hover:border-slate-300"
-										}`}
-									>
-										<div className="h-20 w-24 overflow-hidden rounded-xl">
-											<img
-												src={item.image}
-												alt={item.title}
-												className="h-full w-full object-cover"
-											/>
-										</div>
-										<div className="min-w-0 flex-1">
-											<p className="truncate text-sm font-semibold text-text-primary">
-												{item.title}
-											</p>
-											<p className="mt-1 line-clamp-2 text-xs text-text-secondary">
-												{item.description}
-											</p>
-										</div>
-									</button>
-								))}
-							</div>
-						</div>
-
-						<div className="mt-6 flex items-center justify-center gap-3">
-							<button
-								type="button"
-								onClick={() => goTo(activeIndex - 1)}
-								className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-xl text-text-primary transition hover:border-primary-blue hover:text-primary-blue"
-								aria-label="Previous gallery item"
-							>
-								‹
-							</button>
-							<div className="flex gap-2">
-								{galleryItems.map((_, index) => (
-									<button
-										key={index}
-										type="button"
-										onClick={() => goTo(index)}
-										aria-label={`Show item ${index + 1}`}
-										className={`h-2.5 rounded-full transition-all ${
-											activeIndex === index
-												? "w-8 bg-primary-blue"
-												: "w-3 bg-slate-300 hover:bg-slate-400"
-										}`}
-									/>
-								))}
-							</div>
-							<button
-								type="button"
-								onClick={() => goTo(activeIndex + 1)}
-								className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-xl text-text-primary transition hover:border-primary-blue hover:text-primary-blue"
-								aria-label="Next gallery item"
-							>
-								›
-							</button>
 						</div>
 					</div>
 				</section>
