@@ -43,10 +43,10 @@ export default function HeroBanner() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative"
           >
-            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-bg-light to-border-color">
+            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-bg-light to-border-color shadow-[0_20px_50px_rgba(15,23,42,0.08)]">
               <img
-                src="https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?q=80&w=800&auto=format&fit=crop"
-                alt="Rempang Eco City"
+                src="/images/hero-rumah-rempang.png"
+                alt="Rumah Rempang"
                 className="w-full h-full object-cover"
               />
             </div>
