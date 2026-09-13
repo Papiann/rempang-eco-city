@@ -11,7 +11,7 @@ export default function PariwisataPage() {
       <div className="pt-20 md:pt-24">
         <PageHeader 
           title="Pariwisata Rempang"
-          description="Jelajahi potensi alam, budaya, dan destinasi wisata"
+          description="Jelajahi dua destinasi unggulan Rempang saat ini: wisata mancing dan eksplorasi mangrove, lengkap dengan detail aktivitas dan rekomendasi kunjungan."
         />
         <PariwisataContent />
       </div>
