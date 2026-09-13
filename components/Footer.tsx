@@ -1,9 +1,12 @@
 import Link from "next/link";
 
-const navLinks = [
+const leftMenuLinks = [
   { label: "Beranda", href: "/" },
   { label: "Profil REC", href: "/profil" },
   { label: "Koperasi", href: "/koperasi" },
+];
+
+const rightMenuLinks = [
   { label: "Pariwisata", href: "/pariwisata" },
   { label: "UMKM", href: "/umkm" },
   { label: "Berita", href: "/berita" },
@@ -24,9 +27,8 @@ export default function Footer() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <p className="text-sm text-white">
-                Kementerian Transmigrasi Republik Indonesia
-              </p>
+              <p className="text-sm text-white leading-relaxed">Kementerian Transmigrasi</p>
+              <p className="text-sm text-white leading-relaxed">Republik Indonesia</p>
             </div>
           </div>
 
@@ -35,18 +37,32 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-white uppercase tracking-wider">
               Menu
             </h4>
-            <ul className="mt-4 space-y-2">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white hover:text-primary-yellow transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-4 grid grid-cols-2 gap-4">
+              <ul className="space-y-2">
+                {leftMenuLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white hover:text-primary-yellow transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <ul className="space-y-2">
+                {rightMenuLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white hover:text-primary-yellow transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Alamat */}

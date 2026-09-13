@@ -85,7 +85,7 @@ export default function PariwisataContent() {
   };
 
   return (
-    <div className="bg-white py-16 md:py-24">
+    <div className="bg-white pt-8 pb-16 md:pt-10 md:pb-24">
       <div className="container-content">
         <section className="rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8">
           <div className="mb-6 flex flex-wrap gap-3">

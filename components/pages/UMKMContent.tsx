@@ -28,7 +28,7 @@ export default function UMKMContent() {
   });
 
   return (
-    <div className="bg-white py-16 md:py-20">
+    <div className="bg-white pt-8 pb-16 md:pt-10 md:pb-20">
       <div className="container-content">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

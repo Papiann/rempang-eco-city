@@ -36,7 +36,7 @@ const cooperatives = [
 
 export default function KoperasiContent() {
   return (
-    <div className="bg-white py-16 md:py-24">
+    <div className="bg-white pt-8 pb-16 md:pt-10 md:pb-24">
       <div className="container-content">
         <motion.p
           initial={{ opacity: 0, y: 20 }}

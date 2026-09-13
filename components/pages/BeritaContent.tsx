@@ -34,7 +34,7 @@ export default function BeritaContent() {
   const filteredArticles = articles;
 
   return (
-    <div className="bg-white py-16 md:py-24">
+    <div className="bg-white pt-8 pb-16 md:pt-10 md:pb-24">
       <div className="container-content">
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

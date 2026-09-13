@@ -5,7 +5,7 @@ import ProfilGallery from "@/components/ProfilGallery";
 
 export default function ProfilContent() {
   return (
-    <div className="bg-white py-16 md:py-24">
+    <div className="bg-white pt-8 pb-16 md:pt-10 md:pb-24">
       <div className="container-content max-w-3xl">
         {/* Tentang REC */}
         <motion.section
