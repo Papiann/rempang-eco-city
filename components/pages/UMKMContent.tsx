@@ -3,103 +3,55 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { MapPin, Search } from "lucide-react";
-
-const umkmList = [
-  {
-    id: 1,
-    name: "Kerajinan Tangan Rempang",
-    category: "Kerajinan",
-    location: "Jalan Utama, Rempang",
-    description: "Produksi kerajinan tangan tradisional dari kayu dan rotan lokal.",
-    image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=600&auto=format&fit=crop",
-  },
-  {
-    id: 2,
-    name: "Ikan Asap Khas Rempang",
-    category: "Kuliner",
-    location: "Pasar Rempang",
-    description: "Ikan asap berkualitas tinggi menggunakan metode tradisional.",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=600&auto=format&fit=crop",
-  },
-  {
-    id: 3,
-    name: "Batik Lokal Rempang",
-    category: "Fashion",
-    location: "Sentra Batik, Rempang",
-    description: "Batik eksklusif dengan motif khas pulau Rempang.",
-    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=600&auto=format&fit=crop",
-  },
-  {
-    id: 4,
-    name: "Jasa Wisata Lokal",
-    category: "Jasa",
-    location: "Pelabuhan Rempang",
-    description: "Layanan tur dan pemandu wisata yang berpengalaman.",
-    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=600&auto=format&fit=crop",
-  },
-];
-
-const categories = ["Semua", "Kuliner", "Kerajinan", "Fashion", "Jasa", "Produk Lokal"];
+import { ArrowRight, Eye, Search } from "lucide-react";
+import { umkmCatalog, umkmCategories } from "@/data/umkmCatalog";
 
 export default function UMKMContent() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("Semua");
 
-  const filteredUMKM = umkmList.filter((umkm) => {
+  const filteredUMKM = umkmCatalog.filter((umkm) => {
     const searchMatch =
       umkm.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      umkm.description.toLowerCase().includes(searchQuery.toLowerCase());
+      umkm.cardDescription.toLowerCase().includes(searchQuery.toLowerCase());
     const categoryMatch =
       activeCategory === "Semua" || umkm.category === activeCategory;
     return searchMatch && categoryMatch;
   });
 
   return (
-    <div className="bg-white py-16 md:py-24">
+    <div className="bg-white py-16 md:py-20">
       <div className="container-content">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-lg text-text-secondary max-w-2xl mb-12"
-        >
-          Temukan dan dukung produk usaha masyarakat Rempang
-        </motion.p>
-
-        {/* Search Bar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-12"
+          transition={{ duration: 0.5 }}
+          className="mb-8"
         >
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-text-secondary" size={20} />
+          <div className="relative w-full">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-text-secondary" size={18} />
             <input
               type="text"
               placeholder="Cari UMKM..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-6 py-3.5 border border-border-color rounded-lg focus:outline-none focus:border-primary-blue focus:ring-2 focus:ring-primary-blue/20 transition-all"
+              className="w-full rounded-xl border border-slate-300 bg-white py-3 pl-11 pr-4 text-sm text-slate-700 outline-none transition focus:border-primary-blue focus:ring-2 focus:ring-primary-blue/20"
             />
           </div>
         </motion.div>
 
-        {/* Filter */}
-        <div className="mb-12 flex flex-wrap gap-3">
-          {categories.map((cat) => (
+        <div className="mb-10 flex flex-wrap gap-3">
+          {umkmCategories.map((cat) => (
             <motion.button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`px-6 py-2.5 rounded-lg font-medium transition-all ${
+              className={`rounded-full border px-5 py-2 text-sm font-medium transition-all ${
                 activeCategory === cat
-                  ? "bg-primary-blue text-white"
-                  : "bg-bg-light border border-border-color text-text-primary hover:border-primary-blue"
+                  ? "border-primary-blue bg-primary-blue text-white shadow-sm"
+                  : "border-slate-300 bg-white text-text-primary hover:border-primary-blue hover:text-primary-blue"
               }`}
             >
               {cat}
@@ -107,56 +59,54 @@ export default function UMKMContent() {
           ))}
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {filteredUMKM.map((umkm, i) => (
-            <motion.div
+            <motion.article
               key={umkm.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group rounded-xl overflow-hidden border border-border-color hover:shadow-lg hover:border-primary-blue transition-all"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="group overflow-hidden rounded-[30px] border border-slate-300 bg-white shadow-[0_8px_20px_rgba(15,23,42,0.03)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(15,23,42,0.08)]"
             >
-              <div className="relative aspect-video overflow-hidden bg-border-color">
+              <div className="relative h-[250px] overflow-hidden bg-slate-200">
                 <img
                   src={umkm.image}
                   alt={umkm.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
 
-              <div className="p-6">
-                <div className="inline-block px-3 py-1 bg-primary-yellow/20 text-primary-yellow text-xs font-semibold rounded mb-3">
+              <div className="px-4 pb-4 pt-4">
+                <span className="inline-flex rounded-full bg-[#f2da8d] px-3 py-1 text-xs font-semibold text-[#3d4b1a]">
                   {umkm.category}
-                </div>
+                </span>
 
-                <h3 className="font-heading font-bold text-xl text-text-primary group-hover:text-primary-blue transition-colors mb-2">
+                <h3 className="mt-3 font-heading text-lg font-bold leading-snug text-text-primary">
                   {umkm.name}
                 </h3>
 
-                <div className="flex items-center gap-2 text-sm text-text-secondary mb-4">
-                  <MapPin size={16} className="text-primary-blue flex-shrink-0" />
-                  {umkm.location}
-                </div>
-
-                <p className="text-text-secondary mb-6 line-clamp-2">
-                  {umkm.description}
+                <p className="mt-2 min-h-[72px] text-sm leading-relaxed text-text-secondary md:min-h-[84px]">
+                  {umkm.cardDescription}
                 </p>
 
-                <Link
-                  href="#"
-                  className="inline-block text-primary-blue font-medium text-sm hover:text-primary-dark transition-colors"
-                >
-                  Pelajari Lebih Lanjut →
-                </Link>
+                <div className="mt-6">
+                  <Link
+                    href={`/umkm/${umkm.slug}`}
+                    className="flex w-full items-center justify-center gap-1 whitespace-nowrap rounded-xl border border-slate-300 bg-white px-3 py-3 text-[12px] font-medium text-slate-700 transition hover:border-primary-blue hover:text-primary-blue"
+                  >
+                    <Eye size={15} className="stroke-[2.2]" />
+                    Lihat Detail UMKM
+                    <ArrowRight size={13} className="stroke-[2.2]" />
+                  </Link>
+                </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
         {filteredUMKM.length === 0 && (
-          <div className="text-center py-12">
+          <div className="py-12 text-center">
             <p className="text-text-secondary">Tidak ada UMKM yang sesuai dengan pencarian Anda.</p>
           </div>
         )}
