@@ -1,9 +1,7 @@
 export type UMKMCategory =
   | "Kuliner"
   | "Kerajinan"
-  | "Fashion"
-  | "Jasa"
-  | "Produk Lokal";
+  | "Jasa";
 
 export type EcommercePlatform = "shopee" | "tokopedia" | "tiktokshop";
 
@@ -95,19 +93,19 @@ export const umkmCatalog: UMKMItem[] = [
   },
   {
     id: 3,
-    slug: "batik-melayu-rempang",
-    name: "Batik Melayu Rempang",
-    brandName: "Rumah Batik Pulau",
-    category: "Fashion",
+    slug: "souvenir-anyaman-rempang",
+    name: "Souvenir Anyaman Rempang",
+    brandName: "Galeri Anyam Pulau",
+    category: "Kerajinan",
     cardDescription:
-      "Batik khas Rempang dengan motif Melayu modern untuk busana harian dan formal.",
+      "Souvenir anyaman khas Rempang untuk oleh-oleh wisata dan kebutuhan dekorasi rumah.",
     detailDescription:
-      "Rumah Batik Pulau mengembangkan motif batik bertema flora, laut, dan budaya Melayu Rempang. Setiap koleksi diproduksi dalam batch terbatas untuk menjaga kualitas pewarnaan dan keunikan desain.",
+      "Galeri Anyam Pulau fokus pada produksi souvenir khas berbahan anyaman lokal. Produk dibuat oleh perajin binaan komunitas dengan desain khas pesisir Rempang yang cocok untuk kebutuhan oleh-oleh dan hadiah.",
     products: [
-      "Kain batik premium",
-      "Kemeja batik pria",
-      "Dress batik wanita",
-      "Aksesori kain motif",
+      "Tas anyaman mini",
+      "Dompet anyaman",
+      "Kotak hampers rotan",
+      "Souvenir custom event",
     ],
     image:
       "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=crop",
@@ -172,19 +170,19 @@ export const umkmCatalog: UMKMItem[] = [
   },
   {
     id: 6,
-    slug: "produk-lokal-maritim-rempang",
-    name: "Produk Lokal Maritim Rempang",
-    brandName: "Bahari Nusantara Store",
-    category: "Produk Lokal",
+    slug: "katering-rumahan-rempang",
+    name: "Katering Rumahan Rempang",
+    brandName: "Dapur Pesisir Ibu Lina",
+    category: "Kuliner",
     cardDescription:
-      "Produk olahan laut dan cendera mata maritim untuk pasar lokal hingga nasional.",
+      "Layanan katering rumahan dengan menu kuliner khas Rempang untuk acara keluarga dan komunitas.",
     detailDescription:
-      "Bahari Nusantara Store mengkurasi produk lokal berbasis potensi maritim Rempang, mulai dari olahan makanan laut hingga merchandise tematik pesisir. UMKM ini aktif memasarkan produk secara offline dan digital.",
+      "Dapur Pesisir Ibu Lina melayani katering harian dan pesanan acara dengan menu tradisional berbahan segar dari pasar lokal. Usaha ini berkembang lewat layanan antar, pemesanan online, dan kolaborasi dengan komunitas setempat.",
     products: [
-      "Kerupuk ikan",
-      "Abon tuna",
-      "Sambal teri",
-      "Souvenir maritim",
+      "Nasi box seafood",
+      "Paket prasmanan",
+      "Snack box tradisional",
+      "Menu harian rumah tangga",
     ],
     image:
       "https://images.unsplash.com/photo-1523475472560-d2df97ec485c?q=80&w=1200&auto=format&fit=crop",

@@ -19,8 +19,8 @@ export const umkms = [
   },
   {
     id: "u4",
-    title: "UMKM Kelautan",
+    title: "Katering Rumahan",
     image: "/images/hero-kops-mp.png",
-    href: "/umkm/produk-lokal-maritim-rempang",
+    href: "/umkm/katering-rumahan-rempang",
   },
 ];

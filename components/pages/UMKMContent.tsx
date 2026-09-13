@@ -6,6 +6,14 @@ import Link from "next/link";
 import { ArrowRight, Eye, Search } from "lucide-react";
 import { umkmCatalog, umkmCategories } from "@/data/umkmCatalog";
 
+const categoryBadgeClass: Record<string, string> = {
+  Kuliner: "bg-[#dcfce7] text-[#166534]",
+  Kerajinan: "bg-[#f5d0fe] text-[#86198f]",
+  Jasa: "bg-[#fed7aa] text-[#9a3412]",
+  Fashion: "bg-[#fbcfe8] text-[#9d174d]",
+  "Produk Lokal": "bg-[#d1fae5] text-[#065f46]",
+};
+
 export default function UMKMContent() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("Semua");
@@ -78,7 +86,11 @@ export default function UMKMContent() {
               </div>
 
               <div className="px-4 pb-4 pt-4">
-                <span className="inline-flex rounded-full bg-[#f2da8d] px-3 py-1 text-xs font-semibold text-[#3d4b1a]">
+                <span
+                  className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
+                    categoryBadgeClass[umkm.category] ?? "bg-slate-200 text-slate-700"
+                  }`}
+                >
                   {umkm.category}
                 </span>
 

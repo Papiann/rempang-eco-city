@@ -9,6 +9,14 @@ type Props = {
   umkm: UMKMItem;
 };
 
+const categoryBadgeClass: Record<string, string> = {
+  Kuliner: "bg-[#dcfce7] text-[#166534]",
+  Kerajinan: "bg-[#f5d0fe] text-[#86198f]",
+  Jasa: "bg-[#fed7aa] text-[#9a3412]",
+  Fashion: "bg-[#fbcfe8] text-[#9d174d]",
+  "Produk Lokal": "bg-[#d1fae5] text-[#065f46]",
+};
+
 export default function UMKMDetailContent({ umkm }: Props) {
   const [activeProduct, setActiveProduct] = useState(0);
 
@@ -75,7 +83,11 @@ export default function UMKMDetailContent({ umkm }: Props) {
           </div>
 
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_8px_20px_rgba(15,23,42,0.03)] md:p-8">
-            <span className="inline-flex rounded-full bg-[#f2da8d] px-3 py-1 text-xs font-semibold text-[#3d4b1a]">
+            <span
+              className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
+                categoryBadgeClass[umkm.category] ?? "bg-slate-200 text-slate-700"
+              }`}
+            >
               {umkm.category}
             </span>
 
